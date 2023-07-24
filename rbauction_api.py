@@ -115,6 +115,7 @@ df = pd.read_csv('rbauction.csv')
 @app.route('/<title>', methods=['GET'])
 
 def get_vehicle_data(title):
+    custom_data = []
     filtered_df = df[df['Title'].str.contains(title, case=False, na=False)]
     if filtered_df.empty:
         custom_data = custom_call(title)
